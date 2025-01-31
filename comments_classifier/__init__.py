@@ -1,0 +1,5 @@
+from comments_classifier.MNBmodel.comments_classifier_model import ClassifierModel
+from comments_classifier.MNBmodel.transformer import TfidfTransformer
+from comments_classifier.comments_scraper_and_preprocessing.comments_preprocessing import CommentPreprocessing
+from comments_classifier.comments_scraper_and_preprocessing.youtube_comments_analyzer import CommentScraper
+
