@@ -39,8 +39,8 @@ A machine learning–powered web application for **analyzing sentiments** from t
 ---
 
 ## 📸 Demo Output
-
-<img src="Demo_Output/Result.jpg" alt="Result Demo" width="500">
+![Result Demo](Demo_Output/UI.png)
+<img src="Demo_Output/Result.jpg" alt="Result Demo" width="500">   
 
 
 ---
