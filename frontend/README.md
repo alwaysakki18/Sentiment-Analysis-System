@@ -1,70 +1,155 @@
-# Getting Started with Create React App
+# 🧠 Sentiment Analysis System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A machine learning–powered web application for **analyzing sentiments** from text and YouTube comments. Built with **Python (Flask backend)** and **React.js (frontend)**. The app classifies text into **Positive**, **Negative**, or **Neutral** sentiments and provides an interactive UI for batch analysis of YouTube comments.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+* **Sentiment Classification** — Classifies input text and YouTube comments into positive / negative / neutral.
+* **Interactive Frontend** — React.js UI for a responsive user experience.
+* **YouTube Comments Analysis** — Extract and analyze comments from YouTube videos in batch mode.
+* **Custom ML Model** — Local model script (`sentiment.py`) used for inference.
+* **REST API** — Flask backend exposing endpoints for the frontend.
+* **Demo Output** — Screenshots and sample outputs included.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Tech Stack
 
-### `npm test`
+**Frontend**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* React.js (Hooks & component architecture)
+* HTML, CSS (responsive styling)
 
-### `npm run build`
+**Backend**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Python 3.x
+* Flask
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Machine Learning**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* scikit-learn / custom NLP scripts
 
-### `npm run eject`
+**Other**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* Example data: `ytcomments.txt`
+* Virtual environment for Python (`venv`)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📸 Demo Output
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<img src="Demo_Output/Result.jpg" alt="Result Demo" width="500">
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 📂 Project Structure
 
-### Analyzing the Bundle Size
+```
+Sentiment-Analysis-System/
+├── backend/
+│   ├── app.py                 # Flask app (API backend)
+│   ├── sentiment.py           # ML model script (inference)
+│   ├── requirements.txt       # Python dependencies
+│   ├── ytcomments.txt         # Sample dataset for YouTube comments
+│   ├── admin pannel prompt.txt# Notes / prompts
+│   ├── code.txt               # Extra snippets / notes
+│   └── venv/                  # Virtual environment (should be in .gitignore)
+│
+├── frontend/
+│   ├── public/
+│   │   ├── favicon.ico
+│   │   ├── index.html
+│   │   ├── logo192.png
+│   │   ├── logo512.png
+│   │   ├── manifest.json
+│   │   └── robots.txt
+│   ├── src/                   # React components and logic
+│   ├── package.json           # Frontend dependencies
+│   └── package-lock.json
+│
+├── .gitignore
+└── README.md                  # Root documentation
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+> Note: Remove `venv/` from the repository and add it to `.gitignore` if present. Virtual environments should not be committed.
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## ⚡ Getting Started (Local Development)
 
-### Advanced Configuration
+### 1. Clone the repository
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+git clone https://github.com/alwaysakki18/Sentiment-Analysis-System.git
+cd Sentiment-Analysis-System
+```
 
-### Deployment
+### 2. Setup Backend (Flask)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Windows:
 
-### `npm run build` fails to minify
+```powershell
+cd backend
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+python app.py
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Linux / macOS:
+
+```bash
+cd backend
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python app.py
+```
+
+The Flask backend will start by default at: `http://localhost:5000` (confirm via console output).
+
+### 3. Setup Frontend (React)
+
+```bash
+cd ../frontend
+npm install
+npm start
+```
+
+The React frontend will start by default at: `http://localhost:3000`.
+
+---
+
+## 🔌 API Endpoints (example)
+
+> These are example endpoint names — confirm exact routes in `backend/app.py`.
+
+* `GET /api/health` — health check
+* `POST /api/sentiment` — classify a single piece of text (body: `{ "text": "..." }`)
+* `POST /api/sentiment/batch` — classify multiple texts (body: `{ "texts": ["...", "..."] }`)
+* `POST /api/youtube` — analyze YouTube comments by URL or video ID
+
+
+---
+
+## ✅ Tips & Best Practices
+
+* **Do not commit** the `venv/` folder — add it to `.gitignore`.
+* If you serve the frontend and backend from different origins in production, enable CORS in Flask (e.g., using `flask-cors`).
+* For production, consider containerization (Docker) or deploying frontend to Netlify and backend to Render / Railway / Heroku (with a managed DB if needed).
+
+---
+
+## 👨‍💻 Developer
+
+**Akshay Pimpale** — AI & Data Science Enthusiast | Full-Stack Developer
+
+* GitHub: [https://github.com/alwaysakki18](https://github.com/alwaysakki18)
+* LinkedIn: (https://www.linkedin.com/in/alwaysakki18/)
+
+---
